@@ -5,12 +5,13 @@
 package com.itStep.home04.square;
 
 public class Task1 {
+
     public static void main(String[] args) {
-	int div = 2;
-	for (double sum = 1; sum <= 5; div++) {
-	    sum += 1.0 / div;
-	}
-	System.out.println(div-1);
+        int div = 2;
+        for (double sum = 1; sum <= 5; div++) {
+            sum += 1.0 / div;
+        }
+        System.out.println(div - 1);
     }
 
 }

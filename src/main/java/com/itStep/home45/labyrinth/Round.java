@@ -3,20 +3,21 @@ package com.itStep.home45.labyrinth;
 import javax.swing.*;
 import java.awt.*;
 
-@SuppressWarnings ("serial")
+@SuppressWarnings("serial")
 public class Round extends JButton {
+
     int x, y;
-    
+
     public Round(int rad, int x, int y) {
-	this.x = x;
-	this.y = y;
-	System.out.println(x + " " + y);
+        this.x = x;
+        this.y = y;
+        System.out.println(x + " " + y);
         setSize(new Dimension(300, 200));
         System.out.println(getSize());
         setContentAreaFilled(false);
         //setBorderPainted(false);
     }
-    
+
     protected void paintComponent(Graphics g) {
         g.setColor(Color.GREEN);
         g.fillOval(x, y, 100, 100);

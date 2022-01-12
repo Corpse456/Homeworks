@@ -105,7 +105,9 @@
                     for (var j = 0; j < trails.length; j++) {
                         trails[j].color = 'red';
 
-                        if (j >= trails.length - tailSize) {break;}
+                        if (j >= trails.length - tailSize) {
+                            break;
+                        }
                     }
                 }
             }
@@ -132,7 +134,7 @@
                 break;
             }
         }
-        }
+    }
 
     function spawnApple() {
         var newApple = {
@@ -141,12 +143,12 @@
             color: 'red'
         };
         if ((newApple.x < appleWidth || newApple.X > canvas.width - appleWidth)
-        || (newApple.y < appleHeight || newApple.y > canvas.height - appleHeight)) {
+            || (newApple.y < appleHeight || newApple.y > canvas.height - appleHeight)) {
             spawnApple();
             return;
         }
         // check for collisions with tail element, so no apple will be spawned near in it
-        for(var i = 0; i < trails.length; i++) {
+        for (var i = 0; i < trails.length; i++) {
             if (newApple.x < (trails[i].x + playerWidth)
                 && newApple.x + appleWidth > trails[i].x
                 && newApple.y < (trails[i].y + playerHeight)

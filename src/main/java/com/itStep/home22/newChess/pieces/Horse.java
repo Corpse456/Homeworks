@@ -5,7 +5,7 @@ import com.itStep.home22.newChess.Piece;
 public class Horse extends Piece {
 
     public Horse(boolean color) {
-	this.color = color;
-	name = 'H';
+        this.color = color;
+        name = 'H';
     }
 }

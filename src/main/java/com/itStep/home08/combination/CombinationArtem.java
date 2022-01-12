@@ -4,27 +4,29 @@ import java.util.Arrays;
 
 public class CombinationArtem {
 
-    public static void main (String[] args) {
-        String[] array = {"A", "G", "C", "J", "E", "F", "B", "H", "I", "D"};
-        
+    public static void main(String[] args) {
+        String[] array = { "A", "G", "C", "J", "E", "F", "B", "H", "I", "D" };
+
         combinateIt(array);
     }
 
-    private static void combinateIt (String[] array) {
+    private static void combinateIt(String[] array) {
         Arrays.sort(array);
-        
+
         print(array);
         while (Set(array, array.length)) {
             print(array);
         }
     }
 
-    public static boolean Set (String[] array, int n) {
+    public static boolean Set(String[] array, int n) {
         int i = n - 2;
         while (i != -1 && array[i].compareTo(array[i + 1]) >= 0) {
             i--;
         }
-        if (i == -1) return false;
+        if (i == -1) {
+            return false;
+        }
 
         int m = n - 1;
         while (array[i].compareTo(array[m]) >= 0) {
@@ -45,13 +47,13 @@ public class CombinationArtem {
         return true;
     }
 
-    private static void swap (String[] array, int i, int m) {
+    private static void swap(String[] array, int i, int m) {
         String temp = array[i];
         array[i] = array[m];
         array[m] = temp;
     }
-    
-    private static void print (String[] array) {
+
+    private static void print(String[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }

@@ -3,16 +3,21 @@ package com.itStep.home16.man;
 public class Man {
 
     String name;
+
     int age, weigth;
+
     boolean sex;
 
-    static String[] namesMen = {"Simon", "Andrew", "James", "John", "Philip", "Thade", "Barth", "Thomas", "Less",
-                                "Matthew", "Simeon", "Judas"};
-    static String[] namesWomen = {"Rose", "Dorothy", "Amelia", "Grace", "Susan", "Letitia", "Sophie", "Natali", "Mia",
-                                  "Olivia", "Lily", "Ava"};
+    static String[] namesMen = { "Simon", "Andrew", "James", "John", "Philip", "Thade", "Barth", "Thomas", "Less",
+            "Matthew", "Simeon", "Judas" };
+
+    static String[] namesWomen = { "Rose", "Dorothy", "Amelia", "Grace", "Susan", "Letitia", "Sophie", "Natali", "Mia",
+            "Olivia", "Lily", "Ava" };
+
     // массивы для избежания повторов, имя которого не было - false, если
     // попалось - true
     static boolean[] menExist = new boolean[namesMen.length];
+
     static boolean[] womenExist = new boolean[namesWomen.length];
 
     public Man() {

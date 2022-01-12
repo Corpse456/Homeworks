@@ -1,6 +1,7 @@
 package com.itStep.home23.tetris;
 
 public abstract class Figure {
+
     //координаты фигуры на поле
     protected int[][] coordOnfield = new int[4][2];
 
@@ -15,25 +16,25 @@ public abstract class Figure {
 
     //перемещение вправо
     public void moveRight() {
-	for (int i = 0; i < coordOnfield.length; i++) {
-	    coordOnfield[i][1] += 1;
-	}
+        for (int i = 0; i < coordOnfield.length; i++) {
+            coordOnfield[i][1] += 1;
+        }
     }
-    
+
     //перемещение вниз
     public void moveDown() {
-	for (int i = 0; i < coordOnfield.length; i++) {
-	    coordOnfield[i][0] += 1;
-	}
+        for (int i = 0; i < coordOnfield.length; i++) {
+            coordOnfield[i][0] += 1;
+        }
     }
 
     //перемещение влево
     public void moveLeft() {
-	for (int i = 0; i < coordOnfield.length; i++) {
-	    coordOnfield[i][1] -= 1;
-	}
+        for (int i = 0; i < coordOnfield.length; i++) {
+            coordOnfield[i][1] -= 1;
+        }
     }
-    
+
     //поворот
     public abstract void rotate(Field field);
 }

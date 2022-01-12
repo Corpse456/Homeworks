@@ -1,5 +1,9 @@
 package com.itStep.home81.postgre;
 
+import dataBase.postgre.PostgreSQL;
+import listCreators.NamesAndWords;
+import workWithFiles.fileIO.ReaderFromFile;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -7,22 +11,18 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import dataBase.postgre.PostgreSQL;
-import listCreators.NamesAndWords;
-import workWithFiles.fileIO.ReaderFromFile;
-
 public class IgorDataBase {
 
     private static List<List<String>> books = new ArrayList<>();
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         insertIntoAutor();
         insertIntoBooks();
         insertIntoUserGroup();
         insertIntoUsers();
     }
 
-    private static void insertIntoUsers () {
+    private static void insertIntoUsers() {
         List<String> lastNames = NamesAndWords.englishLastNames();
         List<String> manNames = NamesAndWords.englishManNames();
         List<String> manNickNames = NamesAndWords.englishManNickNames();
@@ -45,7 +45,7 @@ public class IgorDataBase {
         System.out.println("t_user filled");
     }
 
-    private static ArrayList<String> fillingUser (List<String> lastNames, List<String> manNames,
+    private static ArrayList<String> fillingUser(List<String> lastNames, List<String> manNames,
             List<String> manNickNames, List<String> womanNames, List<String> womanNickNames, List<String> cities,
             PostgreSQL postgre) {
         ArrayList<String> toAdd = new ArrayList<String>();
@@ -65,8 +65,11 @@ public class IgorDataBase {
             }
         }
         // name
-        if (random) toAdd.add(manNames.get((int) (Math.random() * manNames.size())));
-        else toAdd.add(womanNames.get((int) (Math.random() * womanNames.size())));
+        if (random) {
+            toAdd.add(manNames.get((int) (Math.random() * manNames.size())));
+        } else {
+            toAdd.add(womanNames.get((int) (Math.random() * womanNames.size())));
+        }
 
         // last name
         toAdd.add(lastNames.get((int) (Math.random() * lastNames.size())));
@@ -88,7 +91,7 @@ public class IgorDataBase {
         return toAdd;
     }
 
-    private static String nicknameFinder (List<String> nickNames) {
+    private static String nicknameFinder(List<String> nickNames) {
         String nickname;
         int index = (int) (Math.random() * nickNames.size());
         nickname = nickNames.get(index);
@@ -96,34 +99,43 @@ public class IgorDataBase {
         return nickname;
     }
 
-    private static int randomIndex () {
+    private static int randomIndex() {
         double random = Math.random();
-        if (random > 0.9) return 1;
-        if (random < 0.2) return 0;
-        else return 2;
+        if (random > 0.9) {
+            return 1;
+        }
+        if (random < 0.2) {
+            return 0;
+        } else {
+            return 2;
+        }
     }
 
-    private static String randomBirthDate () {
+    private static String randomBirthDate() {
         long mills = (long) (Math.random() * (Math.random() < 0.5 ? 1 : -0.2) * 1262296800000L);
         Date date = new Date(mills);
         String format = Attributes.dateFormat.format(date);
         return format;
     }
 
-    private static String randomPassword () {
+    private static String randomPassword() {
         StringBuilder password = new StringBuilder();
         for (int i = 0; i < (int) (Math.random() * 5 + 10); i++) {
             String toAppend = "";
             double random = Math.random();
-            if (random < 0.34) toAppend = (char) (Math.random() * 26 + 'A') + "";
-            else if (random > 0.33 && random < 0.67) toAppend = (char) (Math.random() * 26 + 'a') + "";
-            else toAppend = (char) (Math.random() * 10 + '0') + "";
+            if (random < 0.34) {
+                toAppend = (char) (Math.random() * 26 + 'A') + "";
+            } else if (random > 0.33 && random < 0.67) {
+                toAppend = (char) (Math.random() * 26 + 'a') + "";
+            } else {
+                toAppend = (char) (Math.random() * 10 + '0') + "";
+            }
             password.append(toAppend);
         }
         return password.toString();
     }
 
-    private static void insertIntoUserGroup () {
+    private static void insertIntoUserGroup() {
         List<List<String>> groupName = new ArrayList<>();
 
         PostgreSQL postgre = new PostgreSQL(Attributes.BASE_NAME);
@@ -137,7 +149,7 @@ public class IgorDataBase {
         System.out.println("t_user_group filled");
     }
 
-    private static void insertIntoAutor () {
+    private static void insertIntoAutor() {
         ReaderFromFile reader = new ReaderFromFile(".\\src\\main\\resources\\IgorDataBase\\books.txt");
         Set<String> autors = new TreeSet<>();
         List<List<String>> autorsAsList = new ArrayList<>();
@@ -163,7 +175,7 @@ public class IgorDataBase {
         System.out.println("t_autor filled");
     }
 
-    private static void insertIntoBooks () {
+    private static void insertIntoBooks() {
         List<List<String>> booksToQuery = new ArrayList<>();
         PostgreSQL postgre = new PostgreSQL(Attributes.BASE_NAME);
 
@@ -177,7 +189,7 @@ public class IgorDataBase {
         System.out.println("t_book filled");
     }
 
-    private static List<String> fillingBook (List<String> book, List<List<String>> autors) {
+    private static List<String> fillingBook(List<String> book, List<List<String>> autors) {
         List<String> currentBook = new ArrayList<>();
         // title
         currentBook.add(book.get(2));
@@ -186,8 +198,11 @@ public class IgorDataBase {
         currentBook.add(autorID);
 
         // date
-        if (book.size() == 4) currentBook.add(book.get(3));
-        else currentBook.add("");
+        if (book.size() == 4) {
+            currentBook.add(book.get(3));
+        } else {
+            currentBook.add("");
+        }
 
         String categ = Attributes.category[(int) (Math.random() * Attributes.category.length)];
         currentBook.add(categ);
@@ -200,9 +215,11 @@ public class IgorDataBase {
         return currentBook;
     }
 
-    private static String findId (String string, List<List<String>> autors) {
+    private static String findId(String string, List<List<String>> autors) {
         for (int i = 0; i < autors.size(); i++) {
-            if (string != null && string.equals(autors.get(i).get(1))) return autors.get(i).get(0) + "";
+            if (string != null && string.equals(autors.get(i).get(1))) {
+                return autors.get(i).get(0) + "";
+            }
         }
         return null;
     }

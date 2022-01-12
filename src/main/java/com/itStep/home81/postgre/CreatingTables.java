@@ -1,13 +1,13 @@
 package com.itStep.home81.postgre;
 
-import java.io.File;
-
 import dataBase.postgre.PostgreSQL;
 import workWithFiles.fileIO.ReaderFromFile;
 
+import java.io.File;
+
 public class CreatingTables {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         PostgreSQL postgre = new PostgreSQL(Attributes.BASE_NAME);
 
         postgre.customQuery(Attributes.DELETE_SCHEMA);
@@ -22,7 +22,7 @@ public class CreatingTables {
         System.out.println("Done");
     }
 
-    private static void createTable (PostgreSQL postgre, File file) {
+    private static void createTable(PostgreSQL postgre, File file) {
         ReaderFromFile reader = new ReaderFromFile(file);
         String query = reader.readAll();
         postgre.customQuery(query);

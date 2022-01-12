@@ -15,7 +15,7 @@ public class MyLabyrinth {
         cell[4][0] = false;
         printLab();
 
-        int[] current = {2, 4};
+        int[] current = { 2, 4 };
         LinkedList<int[]> path = new LinkedList<int[]>();
         Set<String> used = new TreeSet<String>();
         used.add("13");
@@ -48,8 +48,8 @@ public class MyLabyrinth {
         int[] ij = new int[2];
         ij[0] = current[0];
         ij[1] = current[1];
-        int[] k = {0, 0, -1, 1};
-        int[] l = {-1, 1, 0, 0};
+        int[] k = { 0, 0, -1, 1 };
+        int[] l = { -1, 1, 0, 0 };
 
         for (int i = 0; i < l.length; i++) {
             String toAdd = (ij[0] + k[i]) + "" + (ij[1] + l[i]);

@@ -4,6 +4,7 @@ import com.itStep.getInput.GetBinary;
 import com.itStep.getInput.GetInt;
 
 public class ManMain {
+
     static Man[] assembly = new Man[24];
 
     public static void main(String[] args) {

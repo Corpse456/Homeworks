@@ -5,12 +5,12 @@ package com.itStep.home04.square;
 public class Task13 {
 
     public static void main(String[] args) {
-	int a = 1, b = 16, c = 16;
-	if (a == b || b == c || a == c) {
-	    System.out.println("Yes");
-	} else {
-	    System.out.println("No");
-	}
+        int a = 1, b = 16, c = 16;
+        if (a == b || b == c || a == c) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
     }
 
 }

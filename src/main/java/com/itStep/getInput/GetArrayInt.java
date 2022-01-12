@@ -6,7 +6,7 @@ public class GetArrayInt {
 
     private static Scanner take = new Scanner(System.in);
 
-    public static int[] get () {
+    public static int[] get() {
 
         String input = take.nextLine();
 
@@ -25,8 +25,10 @@ public class GetArrayInt {
         return array;
     }
 
-    private static boolean check (String input) {
-        if (input.length() < 1) { return false; }
+    private static boolean check(String input) {
+        if (input.length() < 1) {
+            return false;
+        }
 
         for (int i = 0; i < input.length(); i++) {
             boolean exist = false;
@@ -36,7 +38,9 @@ public class GetArrayInt {
                     break;
                 }
             }
-            if (!exist) return false;
+            if (!exist) {
+                return false;
+            }
         }
         return true;
     }

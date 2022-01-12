@@ -3,9 +3,10 @@ package com.itStep.home08.combination;
 import com.itStep.getInput.GetInt;
 
 public class Combination2 {
+
     private static int sum = 0;
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         int amount;
         do {
             System.out.print("Enter amount of numbers: ");
@@ -25,7 +26,7 @@ public class Combination2 {
             array[i] = GetInt.get();
         }
         System.out.println();
-        
+
         long time = System.currentTimeMillis();
         // сортировка элементов
         sort(0, array);
@@ -36,9 +37,11 @@ public class Combination2 {
         System.out.println(System.currentTimeMillis() - time);
     }
 
-    private static void pick (int i, int[] array) {
+    private static void pick(int i, int[] array) {
         // если метод получил последнее число массива - выйти
-        if (i == array.length - 1) { return; }
+        if (i == array.length - 1) {
+            return;
+        }
         // комбинации первого числа
         for (; i < array.length; i++) {
             // со всеми последующими
@@ -56,7 +59,7 @@ public class Combination2 {
         }
     }
 
-    private static void sort (int k, int[] array) {
+    private static void sort(int k, int[] array) {
         for (int i = k + 1; i < array.length; i++) {
             int j = i - 1;
             int buff = array[i];
@@ -68,7 +71,7 @@ public class Combination2 {
         }
     }
 
-    private static void print (int[] array) {
+    private static void print(int[] array) {
         // количество комбинаций
         sum++;
         System.out.print(sum + ": ");
@@ -78,7 +81,7 @@ public class Combination2 {
         System.out.println();
     }
 
-    private static void swap (int i, int j, int[] array) {
+    private static void swap(int i, int j, int[] array) {
         int change = array[i];
         array[i] = array[j];
         array[j] = change;

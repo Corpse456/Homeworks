@@ -3,10 +3,11 @@ package com.itStep.home22.newChess;
 public class Player {
 
     String color;
+
     String name;
-    
+
     public Player(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     @Override
