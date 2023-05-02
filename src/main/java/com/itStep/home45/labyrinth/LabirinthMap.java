@@ -45,9 +45,9 @@ public class LabirinthMap extends JFrame {
         RoundButton round = new RoundButton("");
         cells[3][4].add(round);
 
-        for (int i = 0; i < cells.length; i++) {
+        for (final JPanel[] cell : cells) {
             for (int j = 0; j < cells.length; j++) {
-                add(cells[i][j]);
+                add(cell[j]);
             }
         }
         System.out.println(cells[3][4].getBounds());
